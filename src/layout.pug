@@ -2,8 +2,9 @@ doctype html
 html
   head 
     title pug sass webpack setup
+    link(href="./sass/style.scss" rel="stylesheet")
   body 
     block header 
     block content 
     block footer 
-  script(src="somescript.js")
+    script(src="./app.js")
