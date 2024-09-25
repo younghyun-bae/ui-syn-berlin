@@ -1,0 +1,18 @@
+extends ../layout.pug
+block content 
+  h4.welcome-text Welcome, you talent
+  ul.auth-container 
+    li Facebook
+      i(class="fa-brands fa-facebook" style="color: #212121;")
+    li LinkedIn 
+      i(class="fa-brands fa-linkedin" style="color: #212121;")
+    li Google 
+      i(class="fa-brands fa-google" style="color: #212121;")
+  div.email-container
+    input(type="text" placeholder="Email")
+    input(type="password" id="password" placeholder="Password")
+    span 
+      i(class="fa-regular fa-eye-slash" style="color: #212121;")
+    a(href='./home.html') Log In 
+    p.join-text Don't have an account?
+    a(href="") Join Berlin's Creative Hub 
