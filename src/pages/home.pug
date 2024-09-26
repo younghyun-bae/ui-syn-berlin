@@ -11,14 +11,20 @@ block content
     input(type="search" placeholder="Search for any talent...") 
   section.event-section 
     h5 All Events 
-    div.event-container
-      div.event-slide 
+    ul.event-container
+      li.event-item
+        div.event-slide 
+          img(src="" alt="slide-1")
+          p Event Advertisement here
+    //- sliding event gallery
   section.popular-section 
+    h5 Popular
     ul.popular 
-      li: a(href="./forum.html") Community Threads 
-      li 1:1 Collaboration 
-      li Hiring 
+      li.popular-item: a(href="./forum.html") Community Threads 
+      li.popular-item 1:1 Collaboration 
+      li.popular-item Hiring 
   section.about 
+    h5 About
     p SYN BERLIN is a platform for creators based in Berlin to network and collaborate easily. Freelancers, artists, developers, and designers can register their profiles and connect with one another.. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis excepturi culpa officiis vitae perspiciatis iusto architecto amet, hic numquam accusantium placeat cum explicabo sit dolores quam sapiente eum alias? Harum.
 block navbar
   include ../components/navbar.pug

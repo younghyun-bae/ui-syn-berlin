@@ -8,11 +8,16 @@ block content
       i(class="fa-brands fa-linkedin" style="color: #212121;")
     li Google 
       i(class="fa-brands fa-google" style="color: #212121;")
+  //- Authentication logic
   div.email-container
-    input(type="text" placeholder="Email")
-    input(type="password" id="password" placeholder="Password")
-    span 
-      i(class="fa-regular fa-eye-slash" style="color: #212121;")
-    a(href='./home.html') Log In 
-    p.join-text Don't have an account?
-    a(href="") Join Berlin's Creative Hub 
+    form(action="./home.html")
+      input(type="text" placeholder="Email" name="email")
+      input(type="password" id="password" placeholder="Password" name="password")
+      span 
+        i(class="fa-regular fa-eye-slash" style="color: #212121;")
+      //- a(href='./home.html') Log In 
+      input(type="submit" value="Log In")
+    //- Login form logic
+  p.join-text Don't have an account?
+  a(href="") Join Berlin's Creative Hub 
+  //- Signup logic or just with auth above

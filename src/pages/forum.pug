@@ -1,4 +1,27 @@
 extends ../layout.pug
+block header 
+  div.forum-header
+    h1 Forum 
+    span 
+      i(class="fa-regular fa-bell" style="color: #212121;")
 block content 
+  h3 General 
+  ul.post-container 
+    li.post-item
+      div.author-img
+        img(src="")
+      span.heart-btn
+        i(class="fa-regular fa-heart" style="color: #9c9c9c;")
+        //- to press heart to change the color
+      h4.title Advice for finding an accountant
+      h5.author-info Younghyun Bae (Frontend Developer)
+      p.content Dear community, I’m looking for a new accountan who can communicate in English. It would help me a lot if you could share your experience how to find ...
+      p.date 26 SEP 2024
+      p.reply-num 36 replies ▾
+      //- toggling to hide and show event
+    li.post-item
+    li.post-item
+  a.post-btn(href="./post.html")
+    i(class="fa-solid fa-pen-nib" style="color: #212121;")
 block navbar
   include ../components/navbar.pug

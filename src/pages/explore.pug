@@ -1,4 +1,23 @@
 extends ../layout.pug
+block header 
+  div.explore-header
+    h1 Explore 
+    span 
+      i(class="fa-regular fa-bell" style="color: #212121;")
 block content 
+  section.category-container
+    h5 All 
+    span 
+      i(class="fa-solid fa-filter" style="color: #212121;")
+    //- toggling to choose a category
+  ul.avatars 
+    //- Click each items: Showing Each Profile details
+    li.avatar-item 
+      a(href="") Sara Stylist
+        img(src="" alt="Sara")
+    //- Hover each items: showing About Me text
+    li.avatar-item 
+      a(href="") Halfdan Model, Pianist
+        img(src="" alt="Halfdan")
 block navbar
   include ../components/navbar.pug

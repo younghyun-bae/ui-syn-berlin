@@ -1,0 +1,14 @@
+extends ../layout.pug
+block content 
+  section.post-container
+    form(action="" method="POST")
+      input(type="text" placeholder="Add title" name="title" required)
+      input(type="text" placeholder="Posts may be removed if they contain inappropriate content by AI and manager." name="contents" required)
+      //- if the input box selected, edge color to be changed
+      //- 
+      p 0/2000
+      //- Counting number of letters
+      div 
+        a(href="./forum.html") Cancel 
+        input(type="submit" value="Post")
+    //- Submit logic

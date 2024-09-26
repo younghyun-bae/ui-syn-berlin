@@ -49,6 +49,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: './forum.html',
       template: 'src/pages/forum.pug',
+    }),
+    new HtmlWebpackPlugin({
+      filename: './post.html',
+      template: 'src/pages/post.pug',
     })
   ],
   stats: {
