@@ -1,7 +1,18 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const fs = require('fs');
 const webpack = require('webpack');
 const PugPlugin = require('pug-plugin');
+
+const pagesDir = path.resolve(__dirname, 'src/pages');
+const pugFiles = fs.readdirSync(pagesDir).filter(file => file.endsWith('.pug'));
+const htmlPlugins = pugFiles.map(file => {
+  const name = file.replace('.pug','');
+  return new HtmlWebpackPlugin({
+    filename: `./${name}.html`,
+    template: path.resolve(pagesDir, file),
+  });
+});
 
 module.exports = {
   mode: 'development',
@@ -30,29 +41,10 @@ module.exports = {
     ],
   },
   plugins: [
+    ...htmlPlugins,
     new HtmlWebpackPlugin({
       filename: './index.html',
       template: 'src/index.pug',
-    }),
-    new HtmlWebpackPlugin({
-      filename: './login.html',
-      template: 'src/pages/login.pug',
-    }),
-    new HtmlWebpackPlugin({
-      filename: './home.html',
-      template: 'src/pages/home.pug',
-    }),
-    new HtmlWebpackPlugin({
-      filename: './explore.html',
-      template: 'src/pages/explore.pug',
-    }),
-    new HtmlWebpackPlugin({
-      filename: './forum.html',
-      template: 'src/pages/forum.pug',
-    }),
-    new HtmlWebpackPlugin({
-      filename: './post.html',
-      template: 'src/pages/post.pug',
     })
   ],
   stats: {

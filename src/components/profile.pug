@@ -1,0 +1,36 @@
+extends ../layout.pug
+block content 
+  section.preview-container 
+    div.photo-slide 
+      img(src="../asset/images/Sara.jpg" alt="Sara-thumb")
+    //- Photo slide logic
+    div.info
+      h2 Sara Tazor
+      p: i(class="fa-solid fa-location-dot" style="color: #212121;") Neukölln
+      h3 Stylist 
+      h4 Commercial & Music Videos 
+    div.interest
+      h3 Interest 
+      p Collaboration 
+      p Event
+    div.aboutMe 
+      h3 About Me
+      p Hello, I believe there are many ways to express yourself in this world and styling is one of them. As a stylist my mission is to create a unique and authentic styling, so that YOU become the inspiration for others.
+      p 0/500
+      //- Counting number of letters
+    div.mostProud 
+      h3 Work the Most Proud of
+      iframe(width="320" height="180"
+src="https://www.youtube.com/embed/tgbNymZ7vqY")
+      //- if it's a youtube link
+    div.socialMedia 
+      h3 Social Media / Portfolio 
+      div.embed-icons
+        a.instagram(href="https://www.instagram.com/saratazor/")
+          i(class="fa-brands fa-instagram" style="color: #212121;")
+        a.linkedwebsite(href="https://saratazor.com/")
+          i(class="fa-solid fa-link" style="color: #212121;")
+    div.languages
+      h3 Languages
+      p French 
+      p English 

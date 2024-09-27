@@ -1,0 +1,14 @@
+extends ../layout.pug
+block header 
+  div.profileDetails-header 
+    button
+      i(class="fa-regular fa-bookmark" style="color: #9c9c9c;")
+    //- to press bookmark to change the color
+    //- Toggling to add and to remove Bookmarks
+block content 
+  include ../components/profile.pug 
+  section.sendBtn-section 
+    a.send-btn(href="./chat-request.html")
+      i(class="fa-regular fa-paper-plane" style="color: #212121;")
+block navbar 
+  include ../components/navbar.pug

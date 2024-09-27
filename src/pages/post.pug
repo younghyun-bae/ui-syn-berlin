@@ -2,13 +2,15 @@ extends ../layout.pug
 block content 
   section.post-container
     form(action="" method="POST")
-      input(type="text" placeholder="Add title" name="title" required)
-      input(type="text" placeholder="Posts may be removed if they contain inappropriate content by AI and manager." name="contents" required)
-      //- if the input box selected, edge color to be changed
-      //- 
+      label(for="title")
+        input(type="text" placeholder="Add title" id="title" required)
+      label(for="contents")
+        input(type="text" placeholder="Posts may be removed if they contain inappropriate content by AI and manager." id="contents" required)
+        //- if the input box selected, edge color to be changed
       p 0/2000
       //- Counting number of letters
-      div 
+      div.btn-section
         a(href="./forum.html") Cancel 
-        input(type="submit" value="Post")
-    //- Submit logic
+        label(for="post")
+          input(type="submit" id="post" value="Post")
+      //- Submit logic

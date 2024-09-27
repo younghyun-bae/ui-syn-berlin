@@ -1,0 +1,51 @@
+extends ../layout.pug
+block header 
+  div.chat-header
+    a(href="./home.html")
+      i(class="fa-solid fa-arrow-left-long" style="color: #212121;")
+    //- Back to the last page logic
+  section.chat-request 
+    button Chats 
+    button Request 
+    //- Switch tab logic
+block content 
+  //- Chat tab below
+  ul.chat-list 
+    li.chat-item 
+      div.author-img
+        img(src="" alt="thumb")
+      //- Show profile details if clicked
+      div.message-preview
+        h4 Younghyun Bae (Frontend De...)
+        p Could you send me the raw files of ...
+      div.alert
+        i(class="fa-solid fa-circle" style="color: #cddc52;")
+      //- Change color if it's read
+      p 8h
+      //- Time when recieved last message
+      span.manage-chat
+        i(class="fa-solid fa-ellipsis" style="color: #212121;")
+      //- delete, hide, block, report
+    li.chat-item
+    //- Open that chat room if clicked
+
+  //- Reauest tab below
+  ul.request-list 
+    li.request-item 
+      div.author-img
+        img(src="" alt="thumb")
+      //- Show profile details if clicked
+      div.note-preview
+        h4 Debora Voigt (Social Media...)
+        p Hello, I'm currently working on ...
+      div.alert
+        i(class="fa-solid fa-circle" style="color: #cddc52;")
+      //- Change color if it's read
+      p 4m
+      //- Time when recieved last request
+      span.manage-request
+        i(class="fa-solid fa-ellipsis" style="color: #212121;")
+      //- delete, hide, block, report
+
+block navbar 
+  include ../components/navbar.pug

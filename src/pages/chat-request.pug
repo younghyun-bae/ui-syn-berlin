@@ -1,0 +1,12 @@
+extends ../layout.pug
+block header 
+  section.request-container 
+    label(for="note") Add a note to your chat request to Sara
+      textarea(id="note" placeholder="You can start chatting when your request is accepted." rows="8" maxlength="250" required)
+    p 0/250
+    //- Counting number of letters
+  div.btn-section
+    a(href="./profile-details.html") Cancel 
+    label(for="send")
+      input(type="submit" id="send" value="Send")
+

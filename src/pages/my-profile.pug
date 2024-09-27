@@ -1,0 +1,13 @@
+extends ../layout.pug
+block header 
+  div.myProfile-header 
+    h1 My Profile
+    span 
+      i(class="fa-solid fa-gear" style="color: #212121;")
+block content
+  include ../components/profile.pug
+  section.editBtn-section 
+    a.edit-btn(href="./edit-profile.html")
+      i(class="fa-solid fa-pen-to-square" style="color: #212121;")
+block navbar 
+  include ../components/navbar.pug

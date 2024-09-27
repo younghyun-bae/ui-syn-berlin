@@ -1,7 +1,7 @@
 extends ../layout.pug
 block header 
-  div.explore-header
-    h1 Explore 
+  div.bookmarks-header
+    h1 See who you remarked
     span 
       i(class="fa-regular fa-bell" style="color: #212121;")
 block content 
@@ -16,8 +16,5 @@ block content
       a(href="./profile-details.html") Sara Stylist
         img(src="" alt="Sara")
     //- Hover each items: showing About Me text
-    li.avatar-item 
-      a(href="") Halfdan Model, Pianist
-        img(src="" alt="Halfdan")
 block navbar
   include ../components/navbar.pug

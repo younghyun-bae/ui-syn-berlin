@@ -1,0 +1,52 @@
+extends ../layout.pug
+block header 
+  div.editProfile-header 
+    h1 My Profile
+block content 
+  section.edit-section 
+    div.photo-container
+      img(src="../asset/images/Sara.jpg" alt="sara-1" width="164px")
+      //- First img to be a default avatar thumbnail
+      form(action="/edit-profile.html")
+        input(type="file" id="thumbnail" name="filename"  accept="image/png, image/jpg, image/jpg")
+      //- Showing fit-sized tumbnail of chosen imgfile
+    div.info
+      h2 Sara Tazor 
+      //- Loading name from user data on Auth
+      div.location
+        button
+          i(class="fa-solid fa-location-dot" style="color: #212121;") Based in
+        //- Using HTML Geolocation
+    form(action="")
+      .form-item
+        label(for="job-title") Job title
+          input(type="text" name="job-title" id="job-title" placeholder="Add Your Job Title" autocomplete="job-title" multiple required)
+      .form-item
+        label(for="main-field") Focused Main Field
+          input(type="text" name="main-field" id="main-field" placeholder="Add Your Main Field")
+      .form-item
+        label(for="interest") Interest
+          input(type="button" name="Collaboration" id="interest" value="Collaboration")
+          input(type="button" name="Event" id="interest" value="Event")
+          input(type="button" name="Connect" id="interest" value="Connect")
+          input(type="button" name="Mentorship" id="interest" value="Mentorship")
+          input(type="button" name="Inspiration" id="interest" value="Inspiration")
+      .form-item
+        label(for="about-me") About Me
+          input(type="text" name="about-me" id="about-me" placeholder="Overview of your description" maxlength="500" required)
+      .form-item
+        label(for="most-proud") Work the Most Proud of
+          input(type="url" name="most-proud" id="most-proud" placeholder="Add URL" pattern="https://.*")
+      .form-item
+        label(for="sns") Social Media / Portfolio
+          input(type="url" name="sns" id="sns" placeholder="Add Links" pattern="https://.*" size="30" multiple)
+      .form-item
+        label(for="languages") Languages
+          input(type="text" name="languages" id="languages" placeholder="Add Language" autocomplete="languages" multiple required)
+    div.btn-section
+      a(href="./my-profile.html") Cancel 
+      input(type="submit" name="cancel" value="Save")    
+block navbar 
+  include ../components/navbar.pug
+
+  
