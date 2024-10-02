@@ -1,8 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const fs = require('fs');
-const webpack = require('webpack');
-const PugPlugin = require('pug-plugin');
+
 
 const pagesDir = path.resolve(__dirname, 'src/pages');
 const pugFiles = fs.readdirSync(pagesDir).filter(file => file.endsWith('.pug'));
@@ -14,30 +14,55 @@ const htmlPlugins = pugFiles.map(file => {
   });
 });
 
+// const cssFiles = fs.readdirSync(pagesDir).filter(file => file.endsWith('.scss'));
+// const cssPlugins = cssFiles.map(file => {
+//   const name = file.replace('.scss','');
+//   return new MiniCssExtractPlugin({
+//     filename: `css/${name}.css`,
+//     // template: path.resolve(pagesDir, file),
+//   });
+// });
+
+
 module.exports = {
   mode: 'development',
   entry: './src/app.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].bundle.js'
+    filename: '[name].bundle.js',
+    clean: true,
   },
   module: {
     rules: [
       {
-      test: /\.pug$/,
-      use: ['pug-loader', 'pug-html-loader'],
+        test: /\.pug$/,
+        use: [
+          {
+            loader: 'pug-loader',
+            options: {
+              pretty: true,
+            },
+          },
+        ],
       },
       {
         test: /\.(css|sass|scss)$/,
-        use: ['css-loader', 'sass-loader']
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
       },
-      // {
-      //   test: /\.(woff(2)?|ttf|eot|svg)$/,
-      //   type: 'asset/resource',
-      //   generator: {
-      //     filename: 'fonts/[name][ext]',
-      //   },
-      // },
+      {
+        test: /\.(png|svg|jpe?g|gif)$/i,
+        type: 'asset', // inline < 40kb =< resource
+        generator: {
+          filename: 'assets/images/[name].[hash][ext]',
+        },
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'fonts/[name][ext]',
+        },
+      },
     ],
   },
   plugins: [
@@ -45,8 +70,20 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: './index.html',
       template: 'src/index.pug',
-    })
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'css/style.css',
+    }),
   ],
+  devServer: {
+    static: {
+      directory: path.resolve(__dirname, 'dist')
+    },
+    hot: true,
+    open: true,
+    port: 3000,
+    watchFiles: ['src/**/*.*'],
+  },
   stats: {
     children: true
   }
