@@ -1,0 +1,29 @@
+@use 'base/_variables.scss';
+
+@use 'styles/intro';
+@use 'styles/login';
+@use 'styles/home';
+
+@use 'styles/forum';
+@use 'styles/post';
+
+@use 'styles/explore';
+@use 'styles/profile-details';
+@use 'styles/chat-request';
+
+@use 'styles/my-profile';
+@use 'styles/edit-profile';
+
+@use 'styles/chat';
+@use 'styles/bookmarks';
+
+// @use 'pages/.scss';
+
+body {
+  background-color: #f0f0f0;
+}
+
+h1 {
+  color: #333;
+}
+

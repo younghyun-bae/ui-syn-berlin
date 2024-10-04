@@ -14,6 +14,16 @@ const htmlPlugins = pugFiles.map(file => {
   });
 });
 
+const sassDir = path.resolve(__dirname, 'src/sass/styles');
+const scssFiles = fs.readdirSync(sassDir).filter(file => file.endsWith('.scss'));
+const entry = {
+  app: './src/app.js',
+};
+scssFiles.forEach(file => {
+  const name = file.replace('.scss', '');
+  entry[name] = path.resolve(sassDir, file);
+});
+
 // const cssFiles = fs.readdirSync(pagesDir).filter(file => file.endsWith('.scss'));
 // const cssPlugins = cssFiles.map(file => {
 //   const name = file.replace('.scss','');
@@ -26,7 +36,7 @@ const htmlPlugins = pugFiles.map(file => {
 
 module.exports = {
   mode: 'development',
-  entry: './src/app.js',
+  entry: entry,
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].bundle.js',
@@ -52,7 +62,21 @@ module.exports = {
       },
       {
         test: /\.(css|sass|scss)$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true
+            },
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            },
+          },
+        ]
       },
       {
         test: /\.(png|svg|jpe?g|gif)$/i,
@@ -77,7 +101,7 @@ module.exports = {
       template: 'src/index.pug',
     }),
     new MiniCssExtractPlugin({
-      filename: 'css/style.css',
+      filename: 'css/[name].css',
     }),
   ],
   devServer: {
@@ -89,7 +113,5 @@ module.exports = {
     port: 3000,
     watchFiles: ['src/**/*.*'],
   },
-  stats: {
-    children: true
-  }
+  stats: 'minimal',
 }
